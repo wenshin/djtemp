@@ -1,6 +1,7 @@
 {{ project_name }}_env
-.tmp
+db.sqlite3
 *.pyc
 *.swn
 *.swo
 *.swp
+.tmp
