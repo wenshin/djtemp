@@ -1,4 +1,13 @@
 from common import *
-from prod import *
-from dev import *
-from test import *
+
+if DEBUG:
+    try:
+        from dev import *
+        from test import *
+    except:
+        pass
+else:
+    try:
+        from prod import *
+    except:
+        pass
