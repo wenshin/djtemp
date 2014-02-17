@@ -53,7 +53,7 @@ project_name
 ├── static
 │   └── app_name
 ├── tests.py
-├── views.py
+└──views.py
 ```
 
 
@@ -73,7 +73,6 @@ $ django-admin.py startapp --template=/path/to/django_templates/static_embedin_a
 ```
 
 ## Install python dependencies
-
 * Need pip installed, skip to next if already installed
 
 ```
@@ -92,7 +91,6 @@ $ pip install -r requirements.txt
 ```
 
 ## Develop django
-
 * Set `settins.common.DEBUG` to `True`
 * Run `python manage.py runserver` to start dev environment
 * Static files searching
@@ -104,9 +102,9 @@ $ pip install -r requirements.txt
 * Recomment all static, template or custom filters and tags files which belong to a app been put in to it's own folder
 
 ## Deploy django
-
 * Set `settings.common.DEBUG` to `False`
 * Move to project directory and run
+
 ```
 $ python manage.py syncdb
 ... # Some settings for database
