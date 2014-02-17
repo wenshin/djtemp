@@ -7,13 +7,19 @@
 * Project directory tree is like this:
 
 ```
-.
+project_name
+|
 ├── manage.py
+├── project_name_env
+├── README.md
+├── requirements.txt
+├── run.sh
+│   
 ├── project_name
 │   ├── apps
 │   │   └── __init__.py
 │   ├── __init__.py
-│   ├── libs
+│   ├── utils
 │   │   └── __init__.py
 │   ├── settings
 │   │   ├── common.py
@@ -25,18 +31,15 @@
 │   ├── templates
 │   │   ├── 404.html
 │   │   ├── 500.html
-│   │   ├── base.html
 │   │   └── index.html
 │   └── utils
 │       └── __init__.py
-├── project_name_env
-├── README.md
-├── requirements.txt
-├── run.sh
+│   
 ├── server_conf
 │   ├── nginx.conf
 │   ├── uwsgi.ini
 │   └── uwsgi_params
+│   
 └── static_prod
 ```
 
@@ -45,17 +48,12 @@
 ```
 .
 ├── admin.py
-├── admin.pyc
 ├── __init__.py
-├── __init__.pyc
 ├── models.py
-├── models.pyc
 ├── static
 │   └── app_name
 ├── tests.py
-├── tests.pyc
 ├── views.py
-└── views.pyc
 ```
 
 
