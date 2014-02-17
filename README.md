@@ -90,3 +90,33 @@ See http://www.virtualenv.org/en/latest/virtualenv.html.
 # /path/to/project_name/
 $ pip install -r requirements.txt
 ```
+
+## Develop django
+
+* Set `settins.common.DEBUG` to `True`
+* Run `python manage.py runserver` to start dev environment
+* Static files searching
+
+> Djtemp default support searching static files in every app which installed
+> in settings.common.
+
+* Recomment all app codes in apps directory. So in default, djtemp Create a apps.main app to contain the views.index
+* Recomment all static, template or custom filters and tags files which belong to a app been put in to it's own folder
+
+## Deploy django
+
+* Set `settings.common.DEBUG` to `False`
+* Move to project directory and run
+```
+$ python manage.py syncdb
+... # Some settings for database
+...
+$
+$ python manage.py collectstatic
+$ sudo sh run.sh
+```
+
+* Default the port is 80 which you can custom in `server_conf.nginx.conf`
+
+## More information see office document
+[Django Doc](https://docs.djangoproject.com/en/1.6/)
