@@ -63,13 +63,13 @@ project_name
 ## Create a django project which app embeded in apps directory
 
 ```
-$ django-admin.py startproject --template=/path/to/django_templates/app_embedin_project -e py,sh,ini,conf,txt,md -n .gitignore project_name
+$ django-admin.py startproject --template=/path/to/djtemp/app_embedin_project -e py,sh,ini,conf,txt,md -n .gitignore project_name
 ```
 
 ## Create a django app which staticfiles embeded in
 
 ```
-$ django-admin.py startapp --template=/path/to/django_templates/static_embedin_app app_name
+$ django-admin.py startapp --template=/path/to/djtemp/static_embedin_app app_name
 ```
 
 ## Install python dependencies
@@ -113,6 +113,10 @@ $
 $ python manage.py collectstatic
 $ sudo sh run.sh
 ```
+
+* The socket between nginx and uwsgi is using tcp/ip by default.
+If you want to use socket file way, you should change it in nginx.conf and uwsgi.ini manually.
+Do not forget to active the chomd-socket option in uwsgi.ini
 
 * Default the port is 80 which you can custom in `server_conf.nginx.conf`
 
