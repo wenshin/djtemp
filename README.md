@@ -1,6 +1,6 @@
 # Description
 
-1. A nginx+uwsgi+django project.
+1. A nginx+uwsgi+django project template.
 2. Virtualenv to manage the dependencies.
 3. Different directory tree from official templates.
 
@@ -9,6 +9,7 @@
 ```
 project_name
 |
+├── .gitignore
 ├── manage.py
 ├── project_name_env
 ├── README.md
@@ -46,7 +47,8 @@ project_name
 * App directory tree is like:
 
 ```
-.
+app_name
+│   
 ├── admin.py
 ├── __init__.py
 ├── models.py
@@ -65,6 +67,9 @@ project_name
 ```
 $ django-admin.py startproject --template=/path/to/djtemp/app_embedin_project -e py,sh,ini,conf,txt,md -n .gitignore project_name
 ```
+
+> Attention: It's need to change "/path/to/" to your own path of djtemp. 
+> also change project_name to your own project name.
 
 ## Create a django app which staticfiles embeded in
 
@@ -86,7 +91,7 @@ See http://www.virtualenv.org/en/latest/virtualenv.html.
 * Install python dependencies
 
 ```
-# /path/to/project_name/
+# Move to project directory
 $ pip install -r requirements.txt
 ```
 
@@ -106,6 +111,7 @@ $ pip install -r requirements.txt
 * Move to project directory and run
 
 ```
+# If you use a database
 $ python manage.py syncdb
 ... # Some settings for database
 ...
