@@ -96,7 +96,7 @@ $ pip install -r requirements.txt
 ```
 
 ## Develop django
-* Set `settins.common.DEBUG` to `True`
+* Run 'cp dev.py.sample dev.py' In settings directory
 * Run `python manage.py runserver` to start dev environment
 * Static files searching
 
