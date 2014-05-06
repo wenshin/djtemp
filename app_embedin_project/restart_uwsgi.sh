@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-tmpPath="./.tmp/"
+tmpPath="/data/log/.tmp/"
 if [ ! -x "$tmpPath" ]; then
   mkdir $tmpPath
 else
