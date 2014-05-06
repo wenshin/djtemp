@@ -107,6 +107,10 @@ $ pip install -r requirements.txt
 * Recomment all static, template or custom filters and tags files which belong to a app been put in to it's own folder
 
 ## Deploy django
+
+* Install [nginx](http://wiki.nginx.org/Install) and [uwsgi](http://uwsgi-docs.readthedocs.org/en/latest/Install.html)
+
+
 * Set `settings.common.DEBUG` to `False`
 * Move to project directory and run
 
