@@ -10,7 +10,7 @@ fi
 
 pidfile=${tmpPath}"{{ project_name }}-master.pid"
 if [ -f "$pidfile" ]; then
-  uwsgi --stop $pidfile
+  uwsgi --reload $pidfile
+else
+  uwsgi --ini server_conf/uwsgi.ini
 fi
-sleep 1
-uwsgi --ini server_conf/uwsgi.ini
