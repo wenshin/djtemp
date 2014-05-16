@@ -13,4 +13,4 @@ if [ -f "$pidfile" ]; then
   uwsgi --stop $pidfile
 fi
 sleep 1
-uwsgi --ini server_conf/uwsgi.ini --deamonize /data/log/{{ project_name }}_uwsgi.log
+uwsgi --ini server_conf/uwsgi.ini
