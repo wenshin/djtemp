@@ -12,4 +12,5 @@ pidfile=${tmpPath}"{{ project_name }}-master.pid"
 if [ -f "$pidfile" ]; then
   uwsgi --stop $pidfile
 fi
-  uwsgi --ini server_conf/uwsgi.ini --deamonize /data/log/{{ project_name }}_uwsgi.log
+sleep 1
+uwsgi --ini server_conf/uwsgi.ini --deamonize /data/log/{{ project_name }}_uwsgi.log
