@@ -121,14 +121,25 @@ $ python manage.py syncdb
 ...
 $
 $ python manage.py collectstatic
-$ sudo sh run.sh
+$ sudo sh restart_nginx.sh
+$ sudo sh restart_uwsgi.sh
 ```
 
 * The socket between nginx and uwsgi is using tcp/ip by default.
 If you want to use socket file way, you should change it in nginx.conf and uwsgi.ini manually.
 Do not forget to active the chomd-socket option in uwsgi.ini
 
-* Default the port is 80 which you can custom in `server_conf.nginx.conf`
+* Default the port is 80 which you can custom in `server_conf/nginx.conf`
+
+### Enable the HTTP Authentication
+
+Uncomment two setttings in server_conf/nginx.conf. Change the path of password file
+
+```
+auth_basic "Restricted";
+auth_basic_user_file /opt/www/sshow/.htpasswd;
+```
+
 
 ## More information see office document
 [Django Doc](https://docs.djangoproject.com/en/1.6/)
