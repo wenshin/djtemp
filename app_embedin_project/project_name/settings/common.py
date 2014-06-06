@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     '{{ project_name }}.apps.main',
+    '{{ project_name }}.utils',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,16 +86,19 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static_prod/')
 
+# Custom static path
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
+    # >=v2.0.0 of djtemp have move this folder to `apps/main/`
+    # os.path.join(BASE_DIR, 'static/'),
 )
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 
 
-# Templates settings
+# Custom templates settings
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates/'),
+    # >=v2.0.0 of djtemp have move this folder to `apps/main/`
+    # os.path.join(BASE_DIR, 'templates/'),
 )
 
 TEMPLATE_LOADERS = (
