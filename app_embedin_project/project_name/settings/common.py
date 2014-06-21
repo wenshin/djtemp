@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 """
 Django settings for {{ project_name }} project.
 
@@ -88,11 +91,12 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static_prod/')
 
 # Custom static path
 STATICFILES_DIRS = (
-    # >=v2.0.0 of djtemp have move this folder to `apps/main/`
+    # >=v2.0.0 of djtemp have move this folder to `utils/`
     # os.path.join(BASE_DIR, 'static/'),
 )
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+# It is default, just to known it
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
 # Custom templates settings
