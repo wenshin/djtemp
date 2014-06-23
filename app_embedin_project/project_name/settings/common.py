@@ -103,7 +103,7 @@ TEMPLATE_LOADERS = (
 )
 
 LOGGING = {
-    'version': '0.1.0',
+    'version': 1,
     'disable_existing_loggers': True,
     'formatters': {
         'verbose': {
