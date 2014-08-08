@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-# 产品环境下使用，需要使用python manager.py collectstatic 收集静态文件到STATIC_ROOT
+# need use python manager.py collectstatic collect static files to STATIC_ROOT folder
+# render engine not support Chinese ....
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'

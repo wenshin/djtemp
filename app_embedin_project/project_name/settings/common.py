@@ -111,7 +111,7 @@ TEMPLATE_LOADERS = (
 )
 
 LOGGING = {
-    'version': '0.1.0',
+    'version': 1,
     'disable_existing_loggers': True,
     'formatters': {
         'verbose': {
@@ -120,11 +120,6 @@ LOGGING = {
         'simple': {
             'format': '%(levelname)s %(message)s'
         },
-    },
-    'filters': {
-        'special': {
-            '()': 'project.logging.SpecialFilter',
-        }
     },
     'handlers': {
         'null': {
@@ -142,11 +137,6 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['special']
-        }
     },
     'loggers': {
         'django': {
@@ -154,13 +144,8 @@ LOGGING = {
             'propagate': True,
             'level': 'INFO',
         },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
         'django.{{ project_name }}': {
-            'handlers': ['console', 'mail_admins', 'file'],
+            'handlers': ['console', 'file'],
             'level': 'DEBUG',
         }
     }
