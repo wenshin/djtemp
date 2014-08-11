@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 import os
 
 from common import BASE_DIR
@@ -13,5 +16,3 @@ DATABASES = {
     }
 }
 
-# Use normal static files when developing
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
