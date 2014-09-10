@@ -110,43 +110,61 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
+
+# Set your log file path and name
+LOG_FILE = '/var/data/log/{{ project_name }}.log'
+
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
         },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
         },
     },
+    'formatters': {
+        'verbose': {
+            'format': ('[%(asctime)s] %(levelname)-8s '
+                       '%(name)s %(pathname)s %(funcName)s '
+                       '%(lineno)d %(process)d %(thread)d '
+                       '%(threadName)s: %(message)s')
+        },
+        'brief': {
+            'format': ('[%(name)s] [%(funcName)s] [%(lineno)d] '
+                       '%(process)d %(thread)d %(threadName)s: %(message)s')
+        }
+    },
     'handlers': {
-        'null': {
-            'level': 'DEBUG',
-            'class': 'logging.NullHandler',
-        },
-        'file': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': '/data/log/{{ project_name }}_django.log',
-            'formatter': 'verbose'
-        },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+            # Actived when DEBUG=True
+            'filters': ['require_debug_true'],
+            'formatter': 'brief',
+        },
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.handlers.RotatingFileHandler',
+            # Actived when DEBUG=False
+            'filters': ['require_debug_false'],
+            'formatter': 'verbose',
+            'filename': LOG_FILE,
+            'maxBytes': 10485760,
+            'backupCount': 5,
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['null'],
-            'propagate': True,
-            'level': 'INFO',
+            'handlers': ['console'],
         },
-        'django.{{ project_name }}': {
-            'handlers': ['console', 'file'],
+        '{{ project_name }}': {
+            # If the __name__ attribute in your project file is {{ project_name }}.module
+            # you can use logging.getLogger(__name__) to get this logger instance
+            'handlers': ['file', 'console'],
             'level': 'DEBUG',
-        }
+        },
     }
 }
